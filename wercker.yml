@@ -2,11 +2,16 @@ box: golang:latest
 services:
 - name: mysql
   id: mysql
+   env:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_USER: mysql
+        MYSQL_PASSWORD: mysql
+        MYSQL_DATABASE: test
 build:
  steps:
    - script:
        name: Create database
        code: |-
-         mysql -h $MYSQL_PORT_3306_TCP_ADDR -P $MYSQL_PORT_3306_TCP_PORT -u $MYSQL_USER -p test123 -v
-         mysql -uroot -e "SHOW DATABASES;"
-         mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
+         mysql -h $MYSQL_PORT_3306_TCP_ADDR -P $MYSQL_PORT_3306_TCP_PORT -u mysql -p mysql -v
+         mysql -h $MYSQL_PORT_3306_TCP_ADDR -P $MYSQL_PORT_3306_TCP_PORT -u mysql -p mysql -e "SHOW DATABASES;"
+
