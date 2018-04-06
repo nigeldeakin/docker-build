@@ -7,5 +7,6 @@ build:
    - script:
        name: Create database
        code: |-
+         mysql -h $MYSQL_PORT_3306_TCP_ADDR -P $MYSQL_PORT_3306_TCP_PORT -u $MYSQL_USER -p test123 -v
          mysql -uroot -e "SHOW DATABASES;"
          mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
