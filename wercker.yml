@@ -1,0 +1,11 @@
+box: golang:latest
+services:
+- name: mysql
+  id: mysql
+build:
+ steps:
+   - script:
+       name: Create database
+       code: |-
+         mysql -uroot -e "SHOW DATABASES;"
+         mysql -uroot -e "CREATE DATABASE IF NOT EXISTS test"
