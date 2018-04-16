@@ -1,17 +1,19 @@
-box: golang:latest
+box: golang
 services:
-- name: mysql
-  id: mysql
-   env:
-        MYSQL_ROOT_PASSWORD: password
-        MYSQL_USER: mysql
-        MYSQL_PASSWORD: mysql
-        MYSQL_DATABASE: test
-build:
- steps:
-   - script:
-       name: Create database
-       code: |-
-         mysql -h $MYSQL_PORT_3306_TCP_ADDR -P $MYSQL_PORT_3306_TCP_PORT -u mysql -p mysql -v
-         mysql -h $MYSQL_PORT_3306_TCP_ADDR -P $MYSQL_PORT_3306_TCP_PORT -u mysql -p mysql -e "SHOW DATABASES;"
+- name: postgres
+  id: postgres
+  env:
+    POSTGRES_PASSWORD: test
+    POSTGRES_USER: test
+    POSTGRES_DB: test
 
+build:
+  steps:
+    - wercker/golint
+    - script:
+       name: go build
+       code: |
+         ls -ltr
+         go get -u github.com/lib/pq
+         go build ./...
+         ./docker-networks
