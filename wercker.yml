@@ -81,3 +81,5 @@ build:
          then
            exit 2
          fi
+         
+         ping -c 2 postgres
