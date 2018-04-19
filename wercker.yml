@@ -12,9 +12,9 @@ build:
     - script:
        name: go build
        code: |
-       
-        ping -c 1 postgres
-
+         echo "Hi3"       
+         ping -c 1 postgres
+         echo "Hi4"
          if [ -z "$POSTGRES_PORT_5432_TCP_ADDR" ]
          then
            exit 2
