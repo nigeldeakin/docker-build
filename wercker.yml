@@ -69,6 +69,9 @@ build:
            exit 2
          fi
 
-
+         if [ -z "$POSTGRES_ENV_PG_MAJOR" && ${POSTGRES_ENV_PG_MAJOR} == "9.6" ]
+         then
+           exit 2
+         fi
 
 
