@@ -74,4 +74,8 @@ build:
            exit 2
          fi
 
+         if [ -z "$POSTGRES_ENV_POSTGRES_USER" && ${POSTGRES_ENV_POSTGRES_USER} == "test" ]
+         then
+           exit 2
+         fi
 
