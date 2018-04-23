@@ -1,6 +1,5 @@
 box: ubuntu
 
-box: yourbox
 services:
    - name: postgres
      id: postgres
