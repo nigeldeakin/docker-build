@@ -18,6 +18,8 @@ build:
         sleep 60
         ping -c 5 postgres
         psql -h postgres -U $POSTGRES_ENV_POSTGRES_USER -p $POSTGRES_PORT_5432_TCP_PORT
-        SELECT table_schema,table_name FROM information_schema.tables ORDER BY table_schema,table_name;
+        \l
+        \q
+        ping -c 5 postgres
         
         
