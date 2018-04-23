@@ -15,7 +15,7 @@ build:
         apt-get -y install iputils-ping
         apt-get -y install postgresql postgresql-contrib
         sleep 60
-        psql -h postgres -U $POSTGRES_ENV_POSTGRES_USER  -d $POSTGRES_ENV_POSTGRES_DB
+        psql -h postgres -U $POSTGRES_ENV_POSTGRES_USER  
         \l
         \c
         
