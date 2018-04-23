@@ -9,6 +9,7 @@ services:
        POSTGRES_DB: test
 build:
    steps:
+    code: | 
       apt-get update
       apt-get -y install postgresql postgresql-contrib
       apt-get -y install iputils-ping
