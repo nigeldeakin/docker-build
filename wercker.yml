@@ -19,7 +19,7 @@ build:
         apt-get update
         apt-get -y install mysql-client
         echo "Hello"
-        mysqladmin -h "mysql" -u $MYSQL_ENV_MYSQL_USER -p $MYSQL_ENV_MYSQL_PASSWORD status
+        mysqladmin -h $MYSQL_PORT_5432_TCP_ADDR -u $MYSQL_ENV_MYSQL_USER -p $MYSQL_ENV_MYSQL_PASSWORD status
         echo "Bye"
         while ! mysqladmin ping -h"mysql" --user="$MYSQL_ENV_MYSQL_USER" --password="$MYSQL_ENV_MYSQL_PASSWORD"; do
             sleep 1
