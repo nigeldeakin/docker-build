@@ -14,7 +14,7 @@ build:
     - script:
       code: | 
         apt-get update
-        apt-get install iputils-ping
+        apt-get -y install iputils-ping
         apt-get -y install mysql-client
         ping -c 5 mysql
         while ! mysqladmin ping -h "mysql" --user="$MYSQL_ENV_MYSQL_USER" --password="$MYSQL_ENV_MYSQL_PASSWORD"; do
