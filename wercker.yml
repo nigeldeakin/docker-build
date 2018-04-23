@@ -17,7 +17,7 @@ build:
         export PGPASSWORD="postgres"
         sleep 60
         ping -c 5 postgres
-        psql -U $POSTGRES_USER -W
+        psql -h postgres -U $POSTGRES_USER -W
         \l
         \q
         
