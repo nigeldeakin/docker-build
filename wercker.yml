@@ -5,8 +5,8 @@ build:
     - id: postgres
       name: postgres
       env:
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: postgres
+        POSTGRES_USER: test
+        POSTGRES_PASSWORD: test
         POSTGRES_DB: test
   steps:
     - script:
@@ -14,10 +14,10 @@ build:
         apt-get update
         apt-get -y install iputils-ping
         apt-get -y install postgresql postgresql-contrib
-        export PGPASSWORD="postgres"
+        export PGPASSWORD="test"
         sleep 60
         ping -c 5 postgres
-        psql -h postgres -U $POSTGRES_ENV_POSTGRES_USER
+        psql -h postgres -U $POSTGRES_ENV_POSTGRES_USER -p $POSTGRES_PORT_5432_TCP_PORT
         SELECT table_schema,table_name FROM information_schema.tables ORDER BY table_schema,table_name;
         
         
