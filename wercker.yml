@@ -1,4 +1,4 @@
-box: golang
+box: ubuntu
 
 build:
   services:
@@ -13,7 +13,10 @@ build:
   steps:
     - script:
       code: | 
-        echo "$MYSQL_ENV_MYSQL_USER"
-        echo "$MYSQL_ENV_MYSQL_PASSWORD"
+        apt-get update
+        apt-get install iputils-ping
+        apt-get -y install mysql-client
         ping -c 5 mysql
-        
+        while ! mysqladmin ping -h "mysql" --user="$MYSQL_ENV_MYSQL_USER" --password="$MYSQL_ENV_MYSQL_PASSWORD"; do
+            sleep 1
+        done
