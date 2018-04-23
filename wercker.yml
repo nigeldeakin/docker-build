@@ -16,7 +16,7 @@ build:
         apt-get -y install postgresql postgresql-contrib
         export PGPASSWORD="test"
         sleep 60
-        psql -h postgres -U $POSTGRES_ENV_POSTGRES_USER  
+        psql -h postgres --u $POSTGRES_ENV_POSTGRES_USER  
         \l
         \c
         
