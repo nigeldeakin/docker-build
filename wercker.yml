@@ -1,23 +1,6 @@
-box: ubuntu
-
+box: ubuntu:17.10
 build:
-  services:
-    - id: postgres
-      name: postgres
-      env:
-        POSTGRES_USER: test
-        POSTGRES_PASSWORD: test
-        POSTGRES_DB: test
   steps:
-    - script:
-      code: | 
-        apt-get update
-        apt-get -y install iputils-ping
-        apt-get -y install postgresql postgresql-contrib
-        export PGPASSWORD="test"
-        sleep 60
-        ping -c 5 postgres
-        psql -h postgres -U $POSTGRES_ENV_POSTGRES_USER -p $POSTGRES_PORT_5432_TCP_PORT
-        ping -c 10 postgres
-        
-        
+    - internal/docker-build: 
+        dockerfile: Dockerfile
+        image-name: iad.ocir.io/$OCITENANT/api
