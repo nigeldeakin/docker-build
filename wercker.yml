@@ -3,7 +3,10 @@ build:
   steps:
     - script:
         name: Install Curl
-        code: apk --no-cache add curl     
+        code: apk --no-cache add curl  
+    - script: 
+        name: ping  -c 3 google.com
+        code: ping  -c 3 google.com
     - script: 
         name: curl google.com 
         code: |
