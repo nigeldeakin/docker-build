@@ -1,8 +1,10 @@
 box: ubuntu:17.10
 build:
   steps:
-    - code: |
-        pwd
+    - script: 
+        name: Test the container
+        code: |
+            pwd 
     - internal/docker-build: 
         dockerfile: Dockerfile
         image-name: iad.ocir.io/$OCITENANT/api
