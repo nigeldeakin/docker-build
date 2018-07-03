@@ -6,7 +6,9 @@ build:
         code: apk --no-cache add curl  
     - script: 
         name: ping  -c 3 google.com
-        code: ping  -c 3 google.com
+        code: | 
+            ping  -c 3 google.com
+            ping -c 3 216.58.212.110
     - script: 
         name: curl google.com 
         code: |
