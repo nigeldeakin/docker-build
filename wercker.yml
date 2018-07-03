@@ -7,6 +7,7 @@ build:
     - script: 
         name: ping  -c 3 google.com
         code: | 
+            cat /etc/resolv.conf
             ping  -c 3 google.com
             ping -c 3 216.58.212.110
     - script: 
