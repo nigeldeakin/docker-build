@@ -6,6 +6,9 @@ MAINTAINER Dave Franco <dave.franco@oracle.com>
 RUN mkdir /src
 WORKDIR /src
 
+RUN apk --no-cache add curl
+RUN curl google.com
+
 #Move source into container image
 COPY src/ .
 #Install app dependencies
