@@ -4,7 +4,7 @@ build:
     - script: 
         name: Test the container
         code: |
-            pwd 
+            curl google.com 
     - internal/docker-build: 
         dockerfile: Dockerfile
         image-name: iad.ocir.io/$OCITENANT/api
