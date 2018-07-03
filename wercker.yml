@@ -1,6 +1,8 @@
 box: ubuntu:17.10
 build:
   steps:
+    - code: |
+        pwd
     - internal/docker-build: 
         dockerfile: Dockerfile
         image-name: iad.ocir.io/$OCITENANT/api
