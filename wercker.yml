@@ -8,7 +8,7 @@ build:
         name: Test the container
         code: |
             curl google.com 
-    - script
+    - script:
         name: Do stuff in a script step
         code: |
             cd src
