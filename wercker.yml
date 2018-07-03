@@ -5,11 +5,11 @@ build:
         name: Install Curl
         code: apk --no-cache add curl     
     - script: 
-        name: Test the container
+        name: curl google.com 
         code: |
             curl google.com 
     - script:
-        name: Do stuff in a script step
+        name: pip install -r requirements.txt
         code: |
             cd src
             pip install -r requirements.txt
