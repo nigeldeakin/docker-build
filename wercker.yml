@@ -8,6 +8,11 @@ build:
         name: Test the container
         code: |
             curl google.com 
+    - script
+        name: Do stuff in a script step
+        code: |
+            cd src
+            pip install -r requirements.txt
     - internal/docker-build: 
         dockerfile: Dockerfile
         image-name: iad.ocir.io/$OCITENANT/api
