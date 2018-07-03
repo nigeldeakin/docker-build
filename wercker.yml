@@ -1,4 +1,4 @@
-box: ubuntu:17.10
+box: alpine
 build:
   steps:
     - script:
