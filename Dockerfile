@@ -6,7 +6,7 @@ ARG SOME_ARG
 RUN mkdir /src
 WORKDIR /src
 
-RUN ping bbc.co.uk
+RUN ping google.com
 RUN apk --no-cache add curl
 RUN curl google.com
 
