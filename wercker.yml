@@ -4,10 +4,15 @@ build:
     - script: 
         name: ping  -c 3 google.com
         code: | 
+            echo ------------------
             cat /etc/resolv.conf
+            echo ------------------
             nslookup cambridge.gov.uk
+            echo ------------------
             nslookup cambridge.gov.uk `cat /etc/resolv.conf | grep nameserver | head -1 |  awk '{print $2}'`
+            echo ------------------
             ping -c 3 cambridge.gov.uk
+            echo ------------------
             ping -c 3 192.124.249.109
     - internal/docker-build: 
         dockerfile: Dockerfile
