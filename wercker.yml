@@ -1,25 +1,13 @@
-box: python:alpine3.6
+box: alpine
 build:
   steps:
-    - script:
-        name: Install  Curl
-        code: apk --no-cache add curl  
     - script: 
         name: ping  -c 3 google.com
         code: | 
             cat /etc/resolv.conf
-            nslookup google.com
-            ping  -c 3 google.com
-            ping -c 3 172.217.5.238
-    - script: 
-        name: curl google.com 
-        code: |
-            curl google.com 
-    - script:
-        name: pip install -r requirements.txt
-        code: |
-            cd src
-            pip install -r requirements.txt
+            nslookup cambridge.gov.uk
+            ping -c 3 cambridge.gov.uk
+            ping -c 3 192.124.249.109
     - internal/docker-build: 
         dockerfile: Dockerfile
         image-name: iad.ocir.io/$OCITENANT/api
