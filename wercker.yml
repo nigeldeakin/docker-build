@@ -6,6 +6,7 @@ build:
         code: | 
             cat /etc/resolv.conf
             nslookup cambridge.gov.uk
+            nslookup cambridge.gov.uk `cat /etc/resolv.conf | grep nameserver | head -1 |  awk '{print $2}'`
             ping -c 3 cambridge.gov.uk
             ping -c 3 192.124.249.109
     - internal/docker-build: 
