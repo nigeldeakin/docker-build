@@ -10,7 +10,7 @@ build:
             cat /etc/resolv.conf
             nslookup google.com
             ping  -c 3 google.com
-            ping -c 3 216.58.212.110
+            ping -c 3 172.217.5.238
     - script: 
         name: curl google.com 
         code: |
